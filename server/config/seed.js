@@ -5,28 +5,52 @@
 
 'use strict';
 
-var Thing = require('../api/thing/thing.model');
+var Place = require('../api/place/place.model');
 var User = require('../api/user/user.model');
 
-Thing.find({}).remove(function() {
-  Thing.create({
-    name : 'Development Tools',
-    info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
+
+
+//require('./seeds/generateGeocodeSeeds');
+
+
+
+Place.find({}).remove(function() {
+  Place.create({
+    name: 'Centre Bell',
+    formattedAddress: '1909 Avenue des Canadiens-de-Montréal, Montréal, QC H4B 5G0, Canada',
+    location:[-73.5694784,45.49603]
   }, {
-    name : 'Server and Client integration',
-    info : 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.'
+    name: 'McGill University',
+    formattedAddress: '845 Rue Sherbrooke O, Montréal, QC H3A 2T5, Canada',
+    location:[-73.5776415,45.5061666]
   }, {
-    name : 'Smart Build System',
-    info : 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic injection of scripts and styles into your index.html'
-  },  {
-    name : 'Modular Structure',
-    info : 'Best practice client and server structures allow for more code reusability and maximum scalability'
-  },  {
-    name : 'Optimized Build',
-    info : 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images, and rewrites asset names for caching.'
-  },{
-    name : 'Deployment Ready',
-    info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
+    name: 'Montreal Convention Centre',
+    formattedAddress: '1001 Place Jean-Paul-Riopelle, Montréal, QC H2Z 1H5, Canada',
+    location:[-73.5609688,45.50386]
+  }, {
+    name: 'École de technologie supérieure - ÉTS',
+    formattedAddress: '1100 Rue Notre-Dame O, Montréal, QC H3C 1K3, Canada',
+    location:[-73.5628144,45.4951636]
+  }, {
+    name: 'CHU Sainte-Justine',
+    formattedAddress: '3175 Chemin de la Côte-Sainte-Catherine, Montréal, QC H3T 1C4, Canada',        
+    location:[-73.623688,45.5030049]
+  }, {
+    name: 'HEC Montréal',
+    formattedAddress: '3000 Chemin de la Côte-Sainte-Catherine, Montréal, QC H3T 2B1, Canada',
+    location:[-73.6210404,45.5034796]
+  }, {
+    name: 'Jewish General Hospital',
+    formattedAddress: '3755 Chemin de la Côte-Sainte-Catherine, Montréal, QC H3T 1E2, Canada',
+    location:[-73.6287189,45.49785]
+  }, {
+    name: 'Mount Royal Park',
+    formattedAddress: '1260 Remembrance Road, Montréal, QC H3H 1A2, Canada',
+    location:[-73.5970999,45.4987503]
+  }, {
+    name: 'Forum de Montréal',
+    formattedAddress: '2313 Rue Ste-Catherine O, Montréal, QC H3H 1N2, Canada',
+    location:[-73.5883233,45.4832368]
   });
 });
 
@@ -43,7 +67,6 @@ User.find({}).remove(function() {
     email: 'admin@admin.com',
     password: 'admin'
   }, function() {
-      console.log('finished populating users');
-    }
-  );
+    console.log('finished populating users');
+  });
 });
