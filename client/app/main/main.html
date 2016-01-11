@@ -4,12 +4,17 @@
 		<div class="sidebar">
 			<div class="col-lg-12">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Search name or address" ng-model="search">
+					<input type="text" ng-model="keywords" placeholder="Search a place"  class="form-control" 
+					typeahead-loading="loadingLocations" 
+					typeahead-no-results="noResults"
+					typeahead-on-select="search($item)" 
+					typeahead-min-length="3"
+					autocomplete>
 				</div>
 				<div>
-					<div class="list-group" ng-repeat="p in filteredPlaces = (places | filter:search)">
+					<div class="list-group" ng-repeat="p in filteredPlaces = (places)">
 						<a href="#" class="list-group-item">
-						<img ng-src="{{p.icon}}" alt="" class="img-rounded pull-left" style="width:50px;padding-right:10px;">
+							<img ng-src="{{p.icon}}" alt="" class="img-rounded pull-left" style="width:50px;padding-right:10px;">
 							<h4 class="list-group-item-heading">{{p.name}}</h4>
 							<p class="list-group-item-text">{{p.formattedAddress}}</p>
 
@@ -18,7 +23,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="map_canvas">
+		<div class="map_canvas">				
 			<ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
 			<ui-gmap-markers models="map.markers" coords="'self'" icon="'icon'"></ui-gmap-markers>
 			<ui-gmap-circle ng-repeat="c in circles track by c.id" center="c.center" stroke="c.stroke" fill="c.fill" radius="c.radius"

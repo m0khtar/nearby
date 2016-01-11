@@ -11,6 +11,7 @@ var PlaceSchema = new Schema({
 		type:[Number],
 		index: '2dsphere'
 	},
+	types:[String],
 	rating:Number,
 	icon:String,
 	active: Boolean

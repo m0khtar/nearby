@@ -3,6 +3,7 @@
 angular.module('nearbyApp')
   .controller('MainCtrl', function($scope, $http, uiGmapGoogleMapApi, $timeout) {
     $scope.places = [];
+    $scope.filters = [];
 
     uiGmapGoogleMapApi.then(function(maps) {
       setMap();
@@ -69,9 +70,20 @@ angular.module('nearbyApp')
 
     function createMarkers(list) {
       $scope.map.markers = [];
-      var places = (list != null)? list : $scope.places;
+      var places = (list != null) ? list : $scope.places;
       angular.forEach(places, function(place) {
         $scope.map.markers.push(createMarker(place));
+      });
+    };
+
+    /*
+    Filters
+     */
+    function createFilters(list) {
+      $scope.filters = [];
+      var places = ($scope.filteredPlaces.length != 0) ? $scope.filteredPlaces : $scope.places;
+      angular.forEach(places, function(place) {
+        $scope.filters = _.union($scope.filters, place.types);
       });
     };
 
@@ -107,9 +119,18 @@ angular.module('nearbyApp')
           },
           dragend: function(circle) {
             getPlaces(circle);
+            createFilters();
           }
         }
       }];
+    };
+
+
+    /*
+    Search
+     */
+    $scope.search = function() {
+      console.log('sear');
     };
 
   });

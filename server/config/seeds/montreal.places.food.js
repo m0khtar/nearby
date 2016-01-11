@@ -29,9 +29,11 @@ function getPlaces(type) {
 			var locations = places.results;
 
 			_(locations).forEach(function(place) {
+				console.log(place.types);
 				Place.create({
 					name: place.name,
 					formattedAddress: place.vicinity,
+					types:place.types,
 					location: [place.geometry.location.lng, place.geometry.location.lat],
 					rating: place.rating,
 					icon: place.icon
