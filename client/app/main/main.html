@@ -9,8 +9,10 @@
 				<div>
 					<div class="list-group" ng-repeat="p in filteredPlaces = (places | filter:search)">
 						<a href="#" class="list-group-item">
+						<img ng-src="{{p.icon}}" alt="" class="img-rounded pull-left" style="width:50px;padding-right:10px;">
 							<h4 class="list-group-item-heading">{{p.name}}</h4>
 							<p class="list-group-item-text">{{p.formattedAddress}}</p>
+
 						</a>
 					</div>
 				</div>

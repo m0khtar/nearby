@@ -4,12 +4,15 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 var PlaceSchema = new Schema({
+	placeid:String,
 	name: String,
 	formattedAddress: String,
 	location:{
 		type:[Number],
 		index: '2dsphere'
 	},
+	rating:Number,
+	icon:String,
 	active: Boolean
 });
 

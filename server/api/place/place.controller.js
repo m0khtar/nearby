@@ -22,6 +22,7 @@ exports.index = function(req, res) {
       }
     }
   }, function(err, places) {
+    console.log(places);
     if (err) {
       return handleError(res, err);
     }
