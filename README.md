@@ -2,9 +2,9 @@
 Display nearby locations in the area of interests.
 
 #Prerequisites
-Node.js
-MongoDB
-Google maps api key (places)
+- Node.js
+- MongoDB
+- Google maps api key (places)
 
 #How to?
 - gets data from google api, stores them in mongodb (to avoid the query limit).
@@ -13,6 +13,7 @@ Google maps api key (places)
 #Getting Started
 Clone and start having fun !
 
+```
 $ git clone https://github.com/m0khtar/nearby.git nearby-clone
 $ cd nearby-clone
 $ git remote rm origin
@@ -20,8 +21,13 @@ $ git remote rm origin
 $ bower install && npm install
 
 $ grunt serve
+```
 
 #To do
 - add filters
 - add search autocomplete
 - search history / caching
+
+
+#Licence
+[MIT](https://opensource.org/licenses/MIT)
