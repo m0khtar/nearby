@@ -76,16 +76,6 @@ angular.module('nearbyApp')
       });
     };
 
-    /*
-    Filters
-     */
-    function createFilters(list) {
-      $scope.filters = [];
-      var places = ($scope.filteredPlaces.length != 0) ? $scope.filteredPlaces : $scope.places;
-      angular.forEach(places, function(place) {
-        $scope.filters = _.union($scope.filters, place.types);
-      });
-    };
 
     /*
     Circle
@@ -119,18 +109,8 @@ angular.module('nearbyApp')
           },
           dragend: function(circle) {
             getPlaces(circle);
-            createFilters();
           }
         }
       }];
     };
-
-
-    /*
-    Search
-     */
-    $scope.search = function() {
-      console.log('sear');
-    };
-
   });
