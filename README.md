@@ -1,5 +1,6 @@
 # nearby
-Display nearby locations in the area of interests.
+- Display nearby locations in the area of interests.
+- Drag and resize the circle to filter the places within the circle area.
 
 #Prerequisites
 - Node.js
